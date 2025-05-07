@@ -35,13 +35,16 @@ describe('Clicking "Pusha till stacken"', () => {
 
 test('Click "Poppa stacken!" should remove the top element', async () => {
     let topElementBefore = await driver.findElement(By.id('top_of_stack')).getText();
-
     let pop = await driver.findElement(By.id('pop'));
     await pop.click();
 
     let alert = await driver.switchTo().alert();
     await alert.accept();
 
+    let stack = await driver.findElement(By.id('peek'));
+    await stack.click();
+
     let topElementAfter = await driver.findElement(By.id('top_of_stack')).getText();
+
     expect(topElementBefore).not.toEqual(topElementAfter);
 });
