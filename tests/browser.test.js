@@ -34,17 +34,17 @@ describe('Clicking "Pusha till stacken"', () => {
 });
 
 test('Click "Poppa stacken!" should remove the top element', async () => {
-    let topElementBefore = await driver.findElement(By.id('top_of_stack')).getText();
-    let pop = await driver.findElement(By.id('pop'));
-    await pop.click();
+    let topElementBefore = await driver.findElement(By.id('top_of_stack')).getText(); // hämtar det översta elementet
+    let pop = await driver.findElement(By.id('pop')); // hittar knappen för att poppa stacken
+    await pop.click(); // klickar på knappen
 
-    let alert = await driver.switchTo().alert();
-    await alert.accept();
+    let alert = await driver.switchTo().alert(); // alerten dyker upp
+    await alert.accept(); // accepterar alerten
 
-    let stack = await driver.findElement(By.id('peek'));
-    await stack.click();
+    let stack = await driver.findElement(By.id('peek')); // hittar knappen för att kolla det översta elementet
+    await stack.click(); // klickar på knappen
 
-    let topElementAfter = await driver.findElement(By.id('top_of_stack')).getText();
+    let topElementAfter = await driver.findElement(By.id('top_of_stack')).getText(); // hämtar det översta elementet igen
 
-    expect(topElementBefore).not.toEqual(topElementAfter);
+    expect(topElementBefore).not.toEqual(topElementAfter); // kontrollerar att det översta elementet har ändrats
 });
