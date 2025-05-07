@@ -19,10 +19,10 @@ test('peek on stack with two or more elements returns the top element', () => {
 });
 
 test('pop returns the correct element', () => {
-    let expectedElement = "apple";
-    stack.push(expectedElement);
+    let expectedElement = "apple"; // exempelvärde
+    stack.push(expectedElement); // lägg till expectedElement i stacken
 
-    let poppedElement = "banana";
+    let poppedElement = stack.pop(); // sparar det borttagna elementet i poppedElement
 
-    expect(poppedElement).toBe(expectedElement);
+    expect(poppedElement).toBe(expectedElement); // kontrollerar att poppedElement är det förväntade elementet
 });
